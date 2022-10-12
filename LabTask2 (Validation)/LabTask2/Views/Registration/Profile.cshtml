@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+}
+
+@if (Model != null)
+{
+    <h1> @Model.Name</h1>
+    <h1>@Model.Id</h1>
+    <h1>@Model.Gender</h1>
+    <h1>@Model.Email</h1>
+    <h1>@Model.Dob</h1>
+}
+
+@Html.ValidationSummary();
+}
+<h2>Profile</h2>
+<form action="" method="post">
+    <label for="Name">Name:</label>
+    <input type="text" name="Name" placeholder="NAME" id="Name" class="form-control" value="@(Model ==null ? "" : Model.Name)" />
+    @Html.ValidationMessage("Name")
+    <br />
+
+    //
+    <label>ID:</label>
+    <input type="text" name="Id" placeholder="ID" class="form-control" value="@(Model ==null ? "" : Model.Id)" />
+    @Html.ValidationMessage("Id")
+    <br />
+
+    <label> Gender:</label>
+    <input type="radio" name="Gender" id="male" value="Male" />
+    <label for="male">Male</label>
+    <input type="radio" name="Gender" id="female" value="Female" />
+    <label for="female">Female</label>
+    @Html.ValidationMessage("Gender")
+
+    <br />
+
+    <label>Email:</label>
+    <input type="email" name="Email" placeholder="EMAIL" class="form-control" value="@(Model ==null ? "" : Model.Email)" />
+    @Html.ValidationMessage("Email")
+    <br />
+
+    <label>Password: </label>
+    <input type="password" name="Password" placeholder="Password" class="form-control" />
+    @Html.ValidationMessage("Password")
+    <br />
+
+    <label>Confirm Password:</label>
+    <input type="password" name="ConfPassword" class="form-control" />
+    @Html.ValidationMessage("ConfPassword")
+    <br />
+
+    <label>Date of Birth:</label>
+    <input type="date" name="Dob" class="form-control" value="@(Model ==null ? "" : Model.Dob)" />
+    @Html.ValidationMessage("Dob")
+    <br />
+
+    <input type="submit" value="Submit" class="form-control" />
+
+</form>
+
+
